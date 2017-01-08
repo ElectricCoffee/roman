@@ -4,25 +4,26 @@ extern crate lazy_static;
 use std::collections::HashMap;
 mod util;
 
-fn negation_partner(val: u32) -> u32 {
-    match val {
+fn is_negation_partner(curr: u32, last: u32) -> bool {
+    let partner = match curr {
         500 | 1000 => 100,
         50  | 100  => 10,
         5   | 10   => 1,
         _          => 0,
-    }
+    };
+
+    partner == last
 }
 
 fn convert_vec(vec: Vec<u32>) -> Option<u32> {
     let mut last = 0;
-    let mut acc = 0;
+    let mut acc  = 0;
     for current in vec  {
         // if the last value is less than the current value, attempt subtraction
         if last < current && last != 0 {
-            let partner = negation_partner(current);
             // if the last value is valid, subtract then increment
             // making sure to reset the last value to 0
-            if partner == last {
+            if is_negation_partner(current, last) {
                 // remove the last added value
                 acc -= last;
                 // then add the last value subtracted from the current
