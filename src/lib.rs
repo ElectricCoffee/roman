@@ -54,6 +54,18 @@ fn convert_vec(vec: Vec<u32>) -> Option<u32> {
     Some(acc)
 }
 
+pub fn from_roman(num_str: &str) -> Option<u32> {
+    let mut result = Vec::new();
+    for (_, c) in num_str.chars().enumerate() {
+        if let Some(num) = conv_digit(c) {
+            result.push(num);
+        } else {
+            return None;
+        }
+    }
+    convert_vec(result)
+}
+
 #[cfg(test)]
 mod tests {
     #[test]
