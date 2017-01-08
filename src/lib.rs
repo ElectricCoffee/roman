@@ -45,7 +45,7 @@ fn convert_vec(vec: Vec<u32>) -> Option<u32> {
 pub fn from_roman(num_str: &str) -> Option<u32> {
     let mut result = Vec::new();
     for (_, c) in num_str.chars().enumerate() {
-        if let Some(num) = conv_digit(c) {
+        if let Some(num) = util::conv_digit(c) {
             result.push(num);
         } else {
             return None;
