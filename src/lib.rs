@@ -69,6 +69,38 @@ pub fn from_roman(num_str: &str) -> Option<u32> {
 #[cfg(test)]
 mod tests {
     #[test]
-    fn it_works() {
+    fn invalid_string() {
+        // invalid characters
+        let res = super::from_roman("SPQR");
+        assert_eq!(res, None);
+
+        // valid + invalid characters
+        let res = super::from_roman("XVQR");
+        assert_eq!(res, None);
+
+        // valid characters in invalid order
+        let res = super::from_roman("CMLCXLVXILI");
+        assert_eq!(res, None);
+    }
+
+    #[test]
+    fn valid_string() {
+        let res = super::from_roman("XVII");
+        assert_eq!(res, Some(17));
+
+        let res = super::from_roman("IX");
+        assert_eq!(res, Some(9));
+
+        let res = super::from_roman("XL");
+        assert_eq!(res, Some(40));
+
+        let res = super::from_roman("XLIX");
+        assert_eq!(res, Some(49));
+
+        let res = super::from_roman("MCCXLVI");
+        assert_eq!(res, Some(1246));
+
+        let res = super::from_roman("CMXCIX");
+        assert_eq!(res, Some(999));
     }
 }
