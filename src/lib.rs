@@ -3,20 +3,18 @@ extern crate lazy_static;
 
 use std::collections::HashMap;
 
-// lazy static required to have static complex data types
-lazy_static! {
-    static ref CONV_MAP: HashMap<char, u32> = {
-        let mut map = HashMap::new();
-        map.insert('O', 0); // added for the sake of completion
-        map.insert('I', 1);
-        map.insert('V', 5);
-        map.insert('X', 10);
-        map.insert('L', 50);
-        map.insert('C', 100);
-        map.insert('D', 500);
-        map.insert('M', 1000);
-        map
-    };
+fn conv_digit(digit: char) -> Option<u32> {
+    match digit {
+        'O' => Some(0),
+        'I' => Some(1),
+        'V' => Some(5),
+        'X' => Some(10),
+        'L' => Some(50),
+        'C' => Some(100),
+        'D' => Some(500),
+        'M' => Some(1000),
+        _   => None,
+    }
 }
 
 #[cfg(test)]
