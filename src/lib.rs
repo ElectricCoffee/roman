@@ -76,14 +76,17 @@ mod tests {
         let res = super::from_roman("XVII");
         assert_eq!(res, Some(17));
 
-        let res = super::from_roman("IX");
-        assert_eq!(res, Some(9));
+        let res = super::from_roman("XIX");
+        assert_eq!(res, Some(19));
 
         let res = super::from_roman("XL");
         assert_eq!(res, Some(40));
 
         let res = super::from_roman("XLIX");
         assert_eq!(res, Some(49));
+
+        let res = super::from_roman("XC");
+        assert_eq!(res, Some(90));
 
         let res = super::from_roman("MCCXLVI");
         assert_eq!(res, Some(1246));
