@@ -1,7 +1,4 @@
-#[macro_use]
-extern crate lazy_static;
 
-use std::collections::HashMap;
 mod util;
 
 fn is_negation_partner(curr: u32, last: u32) -> bool {
