@@ -1,3 +1,5 @@
+//! # Roman
+//! A simple library for converting roman numerals to integers and back.
 
 mod util;
 
