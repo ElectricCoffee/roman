@@ -17,6 +17,15 @@ fn conv_digit(digit: char) -> Option<u32> {
     }
 }
 
+fn negation_partner(val: u32) -> u32 {
+    match val {
+        500 | 1000 => 100,
+        50  | 100  => 10,
+        5   | 10   => 1,
+        _          => 0,
+    }
+}
+
 #[cfg(test)]
 mod tests {
     #[test]
